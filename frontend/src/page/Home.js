@@ -1,17 +1,16 @@
-import React, { useEffect, useRef, useState } from "react";
-import { useSelector } from "react-redux";
-import CardFeature from "../component/CardFeature";
-import HomeCard from "../component/HomeCard";
-import { GrPrevious, GrNext } from "react-icons/gr";
-import FilterProduct from "../component/FilterProduct";
-import AllProduct from "../component/AllProduct";
-
+import React, { useEffect, useRef, useState } from 'react';
+import { useSelector } from 'react-redux';
+import CardFeature from '../component/CardFeature';
+import HomeCard from '../component/HomeCard';
+import { GrPrevious, GrNext } from 'react-icons/gr';
+import FilterProduct from '../component/FilterProduct';
+import AllProduct from '../component/AllProduct';
 
 const Home = () => {
   const productData = useSelector((state) => state.product.productList);
   const homeProductCartList = productData.slice(1, 5);
   const homeProductCartListVegetables = productData.filter(
-    (el) => el.category === "vegetable",
+    (el) => el.category === 'vegetable',
     []
   );
   const loadingArray = new Array(4).fill(null);
@@ -25,14 +24,6 @@ const Home = () => {
     slideProductRef.current.scrollLeft -= 200;
   };
 
-
- 
-
-
-  
-
-
-
   return (
     <div className="p-2 md:p-4">
       <div className="md:flex gap-4 py-2">
@@ -45,15 +36,16 @@ const Home = () => {
             />
           </div>
           <h2 className="text-4xl md:text-7xl font-bold py-3">
-            The Fasted Delivery in{" "}
+            The Fasted Delivery at{' '}
             <span className="text-red-600 text-">Your Home</span>
           </h2>
           <p className="py-3 text-base ">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries
+            eMart is a food delivery app is a mobile app that lets you order
+            food from nearby restaurants and have it delivered to your door. You
+            can choose from different cuisines and pay through the app. You can
+            also track your order and rate and review your experience. These
+            apps often offer discounts and loyalty programs to encourage you to
+            use them again.
           </p>
           <button className="font-bold bg-red-500 text-slate-200 px-4 py-2 rounded-md">
             Order Now
@@ -75,7 +67,9 @@ const Home = () => {
                 );
               })
             : loadingArray.map((el, index) => {
-                return <HomeCard key={index+"loading"} loading={"Loading..."} />;
+                return (
+                  <HomeCard key={index + 'loading'} loading={'Loading...'} />
+                );
               })}
         </div>
       </div>
@@ -108,7 +102,7 @@ const Home = () => {
             ? homeProductCartListVegetables.map((el) => {
                 return (
                   <CardFeature
-                    key={el._id+"vegetable"}
+                    key={el._id + 'vegetable'}
                     id={el._id}
                     name={el.name}
                     category={el.category}
@@ -117,13 +111,13 @@ const Home = () => {
                   />
                 );
               })
-            : loadingArrayFeature.map((el,index) => (
-                <CardFeature loading="Loading..." key={index+"cartLoading"} />
+            : loadingArrayFeature.map((el, index) => (
+                <CardFeature loading="Loading..." key={index + 'cartLoading'} />
               ))}
         </div>
       </div>
-      
-      <AllProduct heading={"Your Product"}/>
+
+      <AllProduct heading={'Your Product'} />
     </div>
   );
 };
