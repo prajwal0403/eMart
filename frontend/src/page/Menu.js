@@ -9,7 +9,7 @@ const Menu = () => {
   const dispatch = useDispatch()
   const productData = useSelector((state) => state.product.productList);
 
-  const productDisplay = productData.filter((el) => el._id === filterby)[0];
+  const productDisplay = productData.filter((el) => el._id === filterby)[0] || "64219a562cf3fd392ac55a0d";
   console.log(productDisplay);
 
   const handleAddCartProduct = (e) => {
@@ -22,6 +22,7 @@ const Menu = () => {
           <img
             src={productDisplay.image}
             className="hover:scale-105 transition-all h-full"
+            alt=""
           />
         </div>
         <div className="flex flex-col gap-1">

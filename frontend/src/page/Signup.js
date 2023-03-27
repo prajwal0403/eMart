@@ -18,7 +18,6 @@ function Signup() {
     confirmPassword: "",
     image : ""
   });
-  console.log(data);
   const handleShowPassword = () => {
     setShowPassword((preve) => !preve);
   };
@@ -38,8 +37,6 @@ function Signup() {
 
   const handleUploadProfileImage = async(e)=>{
       const data = await ImagetoBase64(e.target.files[0])
-      console.log(data)
-
       setData((preve)=>{
           return{
             ...preve,

@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 8080;
 //mongodb connection
 mongoose.set("strictQuery", false);
 mongoose
-  .connect("mongodb+srv://prajwal:prajwal0403@banking.3hga9.mongodb.net/Project3?retryWrites=true&w=majority")
+  .connect(process.env.mongoURI)
   .then(() => console.log("Connect to Databse"))
   .catch((err) => console.log(err));
 
@@ -46,11 +46,11 @@ app.post("/signup", async (req, res) => {
     console.log(result);
     console.log(err);
     if (result) {
-      res.send({ message: "Email id is already register", alert: false });
+      res.send({ message: "Email id is already register", alert: true });
     } else {
       const data = userModel(req.body);
       const save = data.save();
-      res.send({ message: "Successfully sign up", alert: true });
+      res.send({ message: "Successfully signed up", alert: true });
     }
   });
 });
