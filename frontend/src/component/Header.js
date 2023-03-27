@@ -36,8 +36,8 @@ const Header = () => {
           <nav className="gap-4 md:gap-6 text-base md:text-lg hidden md:flex">
             <Link to={''}>Home</Link>
             <Link to={'menu/64219a562cf3fd392ac55a0d'}>Menu</Link>
-            <Link to={'about'}>About</Link>
-            <Link to={'contact'}>Contact</Link>
+            <Link to={'https://portfolio-prajwal-raut.vercel.app/'}>About</Link>
+            <Link to={'https://www.linkedin.com/in/prajwal-raut-602a99171/'}>Contact</Link>
           </nav>
           <div className="text-2xl text-slate-600 relative">
             <Link to={'cart'}>
