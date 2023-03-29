@@ -29,7 +29,7 @@ const userSchema = mongoose.Schema({
   image: String,
 });
 
-//
+//user model
 const userModel = mongoose.model("user", userSchema);
 
 //api
@@ -37,7 +37,7 @@ app.get("/", (req, res) => {
   res.send("Server is running");
 });
 
-//sign up
+//sign up rote
 app.post("/signup", async (req, res) => {
   console.log(req.body);
   const { email } = req.body;
